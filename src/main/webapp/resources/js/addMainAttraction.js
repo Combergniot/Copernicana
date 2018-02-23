@@ -9,7 +9,7 @@
 
 //alert(myOpts[1].value) //=> Value of the first option
 
-        i++;
+        i++
         console.log('current id is ' + i);
         var original = $('.attraction-row').first();
         console.log('klonuje atrakcje');
@@ -35,8 +35,6 @@
         $('#mainAttractionChained' + i).hide().show();
 
         $("#mainAttractionChained" + i).chainedTo($("#mainAttractionSelector" + i));
-
-
 
     }
 

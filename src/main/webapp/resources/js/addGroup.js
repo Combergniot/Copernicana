@@ -1,7 +1,7 @@
-var groupCount = 1;
+var counter = 1;
 function group_fields() {
 
-    groupCount++;
+    counter++;
     var objToAppend = document.getElementById('group_fields')
     var newGroupDiv = document.createElement("div");
     newGroupDiv.setAttribute("class", "pola-grupy removeclass" + groupCount);

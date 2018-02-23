@@ -19,7 +19,6 @@ public class TripServiceImpl implements TripService {
     @Transactional
     public void addTrip(Trip trip) {
         tripRepository.save(trip);
-
     }
 
     @Override

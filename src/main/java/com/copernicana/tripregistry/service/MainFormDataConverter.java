@@ -35,6 +35,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
@@ -144,7 +145,7 @@ public class MainFormDataConverter {
         if (mainAttractionChained != null) {
             trip.setAttractions(createAttractions(mainAttractionChained, mainAttractionDate, mainAttractionTimeStart, mainAttractionTimeEnd, mainAttractionRemarks, trip));
         }
-
+        // initalize additional
         if (additionalAttractionType != null) {
             if (trip.getAttractions() == null) {
                 trip.setAttractions(createAdditionalAttractions(trip, format, additionalAttractionType, additionalAttractionTimeEnd, additionalAttractionDate, additionalAttractionTimeStart, additionalAttractionRemarks));
@@ -243,12 +244,12 @@ public class MainFormDataConverter {
                         .filter(s -> s.startsWith("pilotname"))
                         .collect(Collectors.toSet());
 
-              //  System.out.println("TOUR TYPE: " + tourType[i]);
+                //  System.out.println("TOUR TYPE: " + tourType[i]);
                 List<String> get = multiParams.get("pilotname[" + i + "]");
                 if (get != null) {
                     for (String value : get) {
                         Guide guide = new Guide();
-                 //       System.out.println("Przewodnicy do zwiedzania! " + value);
+                        //       System.out.println("Przewodnicy do zwiedzania! " + value);
                         guide = guideRepository.findOne(Long.parseLong(value));
                         guides.add(guide);
                     }
@@ -261,10 +262,10 @@ public class MainFormDataConverter {
                         .filter(s -> s.startsWith("attractions"))
                         .collect(Collectors.toSet());
 
-                List<String> addAttractionsStrings = multiParams.get("attractions["+i+"]");
+                List<String> addAttractionsStrings = multiParams.get("attractions[" + i + "]");
                 String addAtraction = "";
-                for(String value : addAttractionsStrings){
-                    addAtraction += " " + value+"<br>";
+                for (String value : addAttractionsStrings) {
+                    addAtraction += " " + value + "<br>";
                 }
                 sightseeing.setAddition(addAtraction);
 
@@ -275,9 +276,9 @@ public class MainFormDataConverter {
                         .filter(s -> s.startsWith("languages"))
                         .collect(Collectors.toSet());
 
-                List<String> addLanguagesStrings = multiParams.get("languages["+i+"]");
+                List<String> addLanguagesStrings = multiParams.get("languages[" + i + "]");
                 String addLanguage = "";
-                if(addLanguagesStrings != null) {
+                if (addLanguagesStrings != null) {
                     for (String value : addLanguagesStrings) {
                         addLanguage += " " + value + "<br>";
                     }
@@ -590,4 +591,7 @@ public class MainFormDataConverter {
         return attraction;
     }
 
+
 }
+
+

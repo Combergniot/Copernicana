@@ -11,6 +11,7 @@
        var original = $('.dinner-row').first();
 
       var clone = original.clone(true);
+
       clone.class = "dinner_row" + ++i;
 
       var parent = original.parent();

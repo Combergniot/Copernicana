@@ -4,6 +4,8 @@ import com.copernicana.tripregistry.model.trip.Accomodation;
 import com.copernicana.tripregistry.model.trip.Guide;
 import com.copernicana.tripregistry.model.trip.Meal;
 import com.copernicana.tripregistry.model.trip.Trip;
+import com.copernicana.tripregistry.model.trip.attraction.AdditionalAttractions;
+import com.copernicana.tripregistry.model.trip.attraction.Attraction;
 import com.copernicana.tripregistry.model.trip.guideusage.GuideUsage;
 import com.copernicana.tripregistry.model.trip.guideusage.Sightseeing;
 import com.copernicana.tripregistry.service.TripService;
@@ -39,9 +41,12 @@ public class EditTripDao {
     @Autowired
     private SightseeingRepository sightseeingRepository;
 
+    @Autowired
+    private AttractionRepository attractionRepository;
 
-//    @Autowired
-//    private AttractionRepository attractionRepository;
+    @Autowired
+    private AdditionalAttractionsRepository additionalAttractionsRepository;
+
 
     private Trip getTripById(Long tripId) {
         return tripService.getOneTrip(tripId);
@@ -156,13 +161,22 @@ public class EditTripDao {
     }
 
 
-//    public void addAttraction(Long tripId, Attraction attraction)
-//    {attractionRepository.save(attraction);
-//    }
-//
-//    public void removeAttraction(Long attractionId)
-//    {attractionRepository.delete(attractionId);
-//    }
+    public void addAttraction(Long tripId, Attraction attraction) {
+        attractionRepository.save(attraction);
+    }
+
+    public void removeAttraction(Long attractionId) {
+        attractionRepository.delete(attractionId);
+    }
+
+    public void addAdditionalAttraction(Long tripId, AdditionalAttractions additionalAttractions) {
+        additionalAttractionsRepository.save(additionalAttractions);
+    }
+
+    public void removeAdditionalAttraction(Long additionalAttractionId) {
+        additionalAttractionsRepository.delete(additionalAttractionId);
+    }
+
 
     @Transactional
     public void removeGuideFromSightseeing(Long seeingId, Long guideId) {
@@ -197,7 +211,8 @@ public class EditTripDao {
         sightseeingRepository.save(sightseeing);
     }
 
+    //TODO - czy usuwać wycieczki w edycji?
     public void removeSightseeing(long sightseeingId) {
-       sightseeingRepository.delete(sightseeingId);
+        sightseeingRepository.delete(sightseeingId);
     }
 }

@@ -7,7 +7,7 @@
          <label class="col-lg-1 control-label ">Rodzaj:</label>
             <!--Wyżywienie: typ posiłku -->
             <div class="col-lg-4  guide-selector">
-                <select name="mealsType" class="form-control" id="mealsType" placeholder="Typ posiłku...">
+                <select name="mealsType" class="chosen-select form-control" id="mealsType" placeholder="Typ posiłku...">
                     <option value="0" disabled selected>Typ posiłku...</option>
                     <option value="śniadanie">Śniadanie</option>
                     <option value="obiad">Obiad</option>
@@ -15,7 +15,7 @@
                 </select>
             </div>
             <div class="col-md-4 guide-selector">
-                <select name="feedingPlace" class="form-control" id="restaurants" data-placeholder="Wybierz
+                <select name="feedingPlace" class="chosen-select form-control" id="restaurants" data-placeholder="Wybierz
                         miejsce...">
                     <option value="0"></option>
                     <option>Chleb i wino</option>

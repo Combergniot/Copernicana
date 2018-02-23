@@ -35,4 +35,3 @@ $( ".additionalAttraction-row:last-child" ).remove();
 
 
 
-

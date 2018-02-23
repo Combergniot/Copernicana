@@ -167,7 +167,7 @@ public class Trip {
         this.accountExecutive = accountExecutive;
     }
 
-    //    public List<AdditionalAttractions> getAdditionalAttractions() {
+//        public List<AdditionalAttractions> getAdditionalAttractions() {
 //        return additionalAttractions;
 //    }
 //

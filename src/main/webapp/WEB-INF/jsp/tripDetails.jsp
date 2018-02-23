@@ -72,9 +72,66 @@
 
     </div> <!--end of row-->
 
-    <hr>
+     <div class="row">
+            <h3 style="display:inline-block;margin-bottom:30px;">Atrakcje</h3>
+            &nbsp; <a href="#attractionModal" data-toggle="modal"><i class="fa fa fa-plus-circle fa-2x"
+                                                                        aria-hidden="true"></i></a><br>
+            <c:forEach items="${trip.attractions}" var="attraction">
+                <div class="col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+
+                            <strong>${attraction.name}<br></strong>
+                            Data: ${attraction.date} <br>
+                            Od: ${attraction.hourFrom} &nbsp &nbsp Do: ${attraction.hourTo} <br>
+                            Uwagi: ${attraction.remarks}<br>
+
+                            <form action="removeAttractionFromTrip/${trip.id}/${attraction.id}" method="POST">
+                                <strong>Usuń</strong>
+                                <button type="submit" value="delete"
+                                        onclick="return confirm('Czy na pewno chcesz usunąć wskazaną atrakcję?')"
+                                        style="border:0 solid transparent; background:transparent;"><i
+                                        class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>
+                            </form>
+
+                        </div> <!--end of panel body-->
+                    </div>  <!--end of panel-->
+                </div>
+                <!--end of column-->
+            </c:forEach>
+        </div> <!--end of row-->
+
+             <div class="row">
+                    <h3 style="display:inline-block;margin-bottom:30px;">Niestandardowe atrakcje</h3>
+                    &nbsp; <a href="#additionalAttractionModal" data-toggle="modal"><i class="fa fa fa-plus-circle fa-2x"
+                                                                                aria-hidden="true"></i></a><br>
+                    <c:forEach items="${trip.attractions}" var="additionalAttraction">
+                        <div class="col-lg-3">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+
+                                    <strong>${additionalAttraction.name}<br></strong>
+                                    Data: ${additionalAttraction.date} <br>
+                                    Od: ${additionalAttraction.hourFrom} &nbsp &nbsp Do: ${attraction.hourTo} <br>
+                                    Uwagi: ${additionalAttraction.remarks}<br>
+
+                                    <form action="removeAdditionalAttractionFromTrip/${trip.id}/${additionalAttraction.id}" method="POST">
+                                        <strong>Usuń</strong>
+                                        <button type="submit" value="delete"
+                                                onclick="return confirm('Czy na pewno chcesz usunąć wskazaną atrakcję?')"
+                                                style="border:0 solid transparent; background:transparent;"><i
+                                                class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>
+                                    </form>
+
+                                </div> <!--end of panel body-->
+                            </div>  <!--end of panel-->
+                        </div>
+                        <!--end of column-->
+                    </c:forEach>
+                </div> <!--end of row-->
+
     <div class="row">
-        <h2 style="display:inline-block;margin-bottom:30px;">Posiłki</h2>
+        <h3 style="display:inline-block;margin-bottom:30px;">Posiłki</h2>
         &nbsp; <a href="#mealModal" data-toggle="modal"><i class="fa fa fa-plus-circle fa-2x"
                                                            aria-hidden="true"></i></a> <br>
         <c:forEach items="${trip.meals}" var="meal">
@@ -84,8 +141,7 @@
 
                         Rodzaj: ${meal.mealType}<br>
                         Data: ${meal.date}<br>
-                        Od: ${meal.hourFrom}<br>
-                        Do: ${meal.hourTo}<br>
+                        Od: ${meal.hourFrom} &nbsp &nbsp Do: ${meal.hourTo}<br>
                         Miejsce: ${meal.place}<br>
                         Uwagi: ${meal.remarks}<br>
 
@@ -105,8 +161,6 @@
         </c:forEach>
     </div> <!--end of row-->
 
-
-    <hr>
     <div class="row">
         <h3 style="display:inline-block;margin-bottom:30px;">Noclegi</h3>
         &nbsp; <a href="#accommodationModal" data-toggle="modal"><i class="fa fa fa-plus-circle fa-2x"
@@ -137,7 +191,6 @@
         </c:forEach>
     </div> <!--end of row-->
 
-    <hr>
     <div class="row">
         <h3 style="display:inline-block;margin-bottom:30px;">Usługi przewodnickie</h3>
         &nbsp; <a href="#sightseeingModal" data-toggle="modal"><i class="fa fa fa-plus-circle fa-2x" aria-hidden="true"></i></a><br>
@@ -148,8 +201,7 @@
                     <div class="panel-body">
 
                         Data: ${attraction.date}<br>
-                        Od: ${attraction.hourFrom}<br>
-                        Do: ${attraction.hourTo}<br>
+                        Od: ${attraction.hourFrom} &nbsp &nbsp Do: ${attraction.hourTo}<br>
                         <br>
                         Program: ${attraction.name}<br>
                         <a href="#" data-toggle="modal"><i class="fa fa-pencil-square-o fa-lg"
@@ -256,6 +308,8 @@
 
 <jsp:include page="scriptLinks.jsp"/>
 <jsp:include page="editTripModals/addAccommodation.jsp"/>
+<jsp:include page="editTripModals/addAttractions.jsp"/>
+<jsp:include page="editTripModals/addAdditionalAttraction.jsp"/>
 
 
 <script src="resources/js/chosen.jquery.js"/>

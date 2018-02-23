@@ -2,6 +2,8 @@ package com.copernicana.tripregistry.controller;
 
 import com.copernicana.tripregistry.model.trip.Accomodation;
 import com.copernicana.tripregistry.model.trip.Meal;
+import com.copernicana.tripregistry.model.trip.attraction.AdditionalAttractions;
+import com.copernicana.tripregistry.model.trip.attraction.Attraction;
 import com.copernicana.tripregistry.model.trip.guideusage.Sightseeing;
 import com.copernicana.tripregistry.repository.EditTripDao;
 import com.copernicana.tripregistry.repository.GuideRepository;
@@ -20,6 +22,7 @@ public class TripController {
     EditTripDao editTripDao;
     @Autowired
     GuideRepository guideRepository;
+
 
     @PostMapping(value = "/deleteTrip/{id}")
     public String deleteTrip(@PathVariable Long id) {
@@ -164,24 +167,42 @@ public class TripController {
         return "redirect:/showTrip?id=" + tripId;
     }
 
-//
-//        @PostMapping(value = "/addAttractionToTrip/{tripId}")
-//    public String addAttraction(@ModelAttribute("attraction")Attraction attraction,
-//                          @PathVariable("tripId") Long tripId
-//    ) {
-//        editTripDao.addAttraction(tripId, attraction);
-//        return "redirect:/showTrip?id=" + tripId;
-//    }
-//
-//
-//    @PostMapping(value = "/removeAttractionFromTrip/{tripId}/{attractionId}")
-//    public String removeAttraction(
-//            @PathVariable("attractionId") Long attractionId,
-//            @PathVariable("tripId") Long tripId) {
-//
-//        editTripDao.removeAttraction(attractionId);
-//        return "redirect:/showTrip?id=" + tripId;
-//    }
+
+    @PostMapping(value = "/addAttractionToTrip/{tripId}")
+    public String addAttraction(@ModelAttribute("attraction")Attraction attraction,
+                          @PathVariable("tripId") Long tripId
+    ) {
+        editTripDao.addAttraction(tripId, attraction);
+        return "redirect:/showTrip?id=" + tripId;
+    }
+
+
+    @PostMapping(value = "/removeAdditionalAttractionFromTrip/{tripId}/{additionalAttractionId}")
+    public String removeAdditionalAttraction(
+            @PathVariable("additionalAttractionId") Long additionalAttractionId,
+            @PathVariable("tripId") Long tripId) {
+
+        editTripDao.removeAttraction(additionalAttractionId);
+        return "redirect:/showTrip?id=" + tripId;
+    }
+
+    @PostMapping(value = "/addAdditionalAttractionToTrip/{tripId}")
+    public String addAdditionalAttraction(@ModelAttribute("additionalAttraction")AdditionalAttractions additionalAttractions,
+                                @PathVariable("tripId") Long tripId
+    ) {
+        editTripDao.addAttraction(tripId, additionalAttractions);
+        return "redirect:/showTrip?id=" + tripId;
+    }
+
+
+    @PostMapping(value = "/removeAttractionFromTrip/{tripId}/{attractionId}")
+    public String removeAttraction(
+            @PathVariable("attractionId") Long attractionId,
+            @PathVariable("tripId") Long tripId) {
+
+        editTripDao.removeAttraction(attractionId);
+        return "redirect:/showTrip?id=" + tripId;
+    }
 
     @PostMapping(value = "/removeGuideFromService/{tripId}/{serviceId}/{guideId}")
     public String removeGuide(

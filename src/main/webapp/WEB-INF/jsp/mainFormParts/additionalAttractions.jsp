@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <legend id="anch6" class="">Niestandardowe atrakcje</legend>
 <div id="mainAttractionType">
 <div class="additionalAttraction-row">
@@ -8,7 +8,7 @@
         <!--Atrakcje: Główne atrakcje -->
         <div class="col-lg-5  guide-selector">
 
-         <select id="additionalAttractionType" class="form-control" name="additionalAttractionType"
+         <select id="additionalAttractionType" class="chosen-select form-control" name="additionalAttractionType"
                     data-placeholder="Wybierz atrakcję...">
         <option></option>
         <option>Bunkier Wisła</option>
@@ -30,15 +30,15 @@
     <div class="row">
         <!-- Atrakcje niestandardowe: Data i godzina -->
         <label class="col-lg-1 control-label guide-selector"> Data:</label>
-        <div class="col-lg-3 guide-selector"><input class="form-control" name="addAttractionDate" id="additional-attraction-date" data-toggle="datepicker" ></div>
+        <div class="col-lg-3 guide-selector"><input class="form-control" name="additionalAttractionDate" id="additional-attraction-date" data-toggle="datepicker" ></div>
         <label class="col-lg-1 control-label guide-selector"> Od:</label>
-        <div class="col-lg-3 guide-selector"><input class="form-control time_element" name="addAttractionTimeStart" id="attraction-time-start" value="12:00"></div>
+        <div class="col-lg-3 guide-selector"><input class="form-control time_element" name="additionalAttractionTimeStart" id="attraction-time-start" value="12:00"></div>
         <label class="col-lg-1 control-label guide-selector">Do:</label>
-        <div class="col-lg-3 guide-selector"><input class="form-control time_element" name="addAttractionTimeEnd" id="attraction-time-end" value="12:00"></div>
+        <div class="col-lg-3 guide-selector"><input class="form-control time_element" name="additionalAttractionTimeEnd" id="attraction-time-end" value="12:00"></div>
     </div>
     <div class="row">
         <div class="col-lg-11 col-lg-offset-1 guide-selector">
-            <textarea name="addAttractionRemarks" class="form-control" id="textarea" class="form-control input-md" placeholder="Uwagi..."></textarea>
+            <textarea name="additionalAttractionRemarks" class="form-control" id="textarea" class="form-control input-md" placeholder="Uwagi..."></textarea>
         </div>
     </div>
     <hr>

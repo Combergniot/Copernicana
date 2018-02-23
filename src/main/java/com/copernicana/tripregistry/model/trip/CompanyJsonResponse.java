@@ -8,7 +8,7 @@ public class CompanyJsonResponse {
     
     private Company company;
     private boolean validated;
-   private Map<String, String> errorMessages;
+     private Map<String, String> errorMessages;
 
     public Company getCompany() {
         return company;
