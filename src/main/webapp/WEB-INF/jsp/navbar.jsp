@@ -27,7 +27,7 @@
                     <a id="dropp" class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Raporty <i id="reportCaret" class="fa fa-caret-down" aria-hidden="true"></i></a>
                     <div id="dropMenu" class="dropdown-menu" aria-labelledby="dropdown">
-                        <a class="dropdown-item" href="/sightseeings">Zwiedzania</a>
+
                         <a class="dropdown-item" href="/gesia">Posiłki</a>
                         <a class="dropdown-item" href="/fort">Fort IV</a>
                         <a class="dropdown-item" href="/olbracht">Olbracht</a>

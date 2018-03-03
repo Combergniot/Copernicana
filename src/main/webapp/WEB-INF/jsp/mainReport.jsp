@@ -13,6 +13,19 @@
 <div class="container-fluid mainContainer">
     <h1>Raport - Główny</h1>
     <h3>Znaleziono wpisów: ${seeings.size()}</h3>
+        <c:if test="${param.deleteSuccess == 'true'}">
+                    <div class="alert alert-success alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Udało się!</strong> Wpis został usunięty
+                    </div>
+                </c:if>
+
+                <c:if test="${param.deleteSuccess == 'false'}">
+                    <div class="alert alert-danger alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Oj oj oj!</strong> Nie udało się usunąć wpisu. Sorki!
+                    </div>
+                </c:if>
 
     <div class="btn-group ">
         <a onclick="toggleColumn(this, 1)" class="btn btn-primary btn-xs">Data</a>
@@ -133,7 +146,7 @@
                 <td>
                     <a href="costEstimateForm?tripId=${seeing.trip.id}" title="Generuj kosztorys"><i
                             class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>
-                    <form action="/deleteTrip/${seeing.trip.id}" method="post" style="display:inline;">
+                    <form action="/deleteSightseeing/${seeing.id}" method="post" style="display:inline;">
                         <button type="submit" value="delete"
                                 onclick="return confirm('Czy na pewno chcesz usunąć tą wycieczkę?')"
                                 class="trash-button" title="Usuń"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>

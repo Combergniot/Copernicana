@@ -7,6 +7,7 @@ import com.copernicana.tripregistry.model.trip.attraction.Attraction;
 import com.copernicana.tripregistry.model.trip.guideusage.Sightseeing;
 import com.copernicana.tripregistry.repository.EditTripDao;
 import com.copernicana.tripregistry.repository.GuideRepository;
+import com.copernicana.tripregistry.repository.SightseeingRepository;
 import com.copernicana.tripregistry.repository.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,10 @@ public class TripController {
     EditTripDao editTripDao;
     @Autowired
     GuideRepository guideRepository;
+    @Autowired
+    SightseeingRepository sightseeingRepository;
+
+
 
 
     @PostMapping(value = "/deleteTrip/{id}")
@@ -36,6 +41,21 @@ public class TripController {
         }
 
     }
+
+    @PostMapping(value = "/deleteSightseeing/{id}")
+    public String deleteSightseeing(@PathVariable Long id) {
+
+        try {
+            sightseeingRepository.delete(id);
+            return "redirect:/mainReport?deleteSuccess=true";
+
+        } catch (Exception e) {
+            return "redirect:/mainReport?deleteSuccess=false";
+        }
+
+    }
+
+
 
     @GetMapping("showTrip")
     public String showTripById(@RequestParam(value = "id", required = true) Long id, Model model) {
